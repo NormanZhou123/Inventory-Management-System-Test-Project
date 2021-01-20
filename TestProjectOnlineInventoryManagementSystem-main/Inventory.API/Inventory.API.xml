@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Inventory.API</name>
+    </assembly>
+    <members>
+        <member name="M:Inventory.API.Controllers.CategoriesController.GetCategory(System.Guid)">
+            <summary>
+            Get an category by id
+            </summary>
+            <param name="categoryId">The id of the category you want to get</param>
+            <returns>An ActionResult of type Category</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.CategoriesController.UpdateCategory(System.Guid,Inventory.API.Models.CategoryForUpdate)">
+            <summary>
+            Update an Category 
+            </summary>
+            <param name="categoryId">The id of the category to update</param>
+            <param name="categoryForUpdate">The category with updated values</param>
+            <returns>An ActionResult of type Category</returns>
+            <response code="422">Validation error</response>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Index(System.String,System.String)">
+            <summary>
+            Get all products, and display them in accordingly order
+            </summary>
+            <param name="sortOrder">The order of the sort</param>
+            <param name="searchString">The key word for filtering</param>
+            <returns>An ActionResult of type Category</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Edit(System.Nullable{System.Guid})">
+            <summary>
+            Edit a product
+            </summary>
+            <param name="id">The Guid of the product</param>
+            <returns>An ActionResult of type Product</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Edit(System.Guid,Inventory.API.Models.Product)">
+            <summary>
+            Edit a product
+            </summary>
+            <param name="id">The Guid of the product</param>
+            <param name="product">The product to be edited</param>
+            <returns>An ActionResult of type Product</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Add">
+            <summary>
+            Add a new product
+            </summary>
+            <returns>An ActionResult of type Product</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Add(Inventory.API.Models.Product)">
+            <summary>
+            Add a product
+            </summary>
+            <param name="product">The product to be added</param>
+            <returns>Redirect to the Index page</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Details(System.Nullable{System.Guid})">
+            <summary>
+            Details of a product
+            </summary>
+            <param name="id">The Guid of the product</param>
+            <returns>The view page of the details of the product</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.Delete(System.Nullable{System.Guid})">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id">The Guid of the product</param>
+            <returns>Redirect to the Index page</returns>
+        </member>
+        <member name="M:Inventory.API.Controllers.ProductsController.DeleteProduct(System.Guid)">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id">The Guid of the product</param>
+            <returns>Redirect to the Index page</returns>
+        </member>
+    </members>
+</doc>

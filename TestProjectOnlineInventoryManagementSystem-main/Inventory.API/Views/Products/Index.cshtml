@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Inventory.API.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Products</h2>
+
+<p>
+    <a asp-action="Add">Create a New Product</a>
+</p>
+<form asp-controller="Products" asp-action="Index" method="get">
+    <p>
+        Name: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["QuantitySortParam"]">
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <form asp-action="Delete">
+                    <input type="hidden" value="@item.Id" name="id" />
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+}
+        </tbody>
+</table>
